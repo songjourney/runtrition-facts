@@ -1,0 +1,283 @@
+body {
+    font-family: Helvetica, sans-serif;
+    background: #f4f4f4;
+    padding: 2rem;
+    text-align: center;
+}
+
+#runtrition-container {
+    width: 440px;
+    height: 570px;
+    background: #fff;
+    color: #000;
+    padding: 18px;
+    border: 2px solid #343434;
+    margin: auto;
+    text-align: left;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.title {
+    font-family: "Helvetica", "Arial Black", sans-serif;
+    font-size: 48px;
+    font-weight: bold;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #343434;
+    margin: 0; /* Adjusted margin to remove extra space between title and line */
+}
+
+.act-title {
+    font-weight: normal;
+    margin: auto;
+    font-size: 24px;
+    color: #343434;
+    margin-top: 14px;
+}
+
+.thin-line {
+    border-top: 2px solid color: #343434;;
+    margin-top: 4px; /* Reduced margin-top to make the space smaller */
+    margin-bottom: 4px; /* Reduced margin-bottom for closer proximity */
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 11px;
+    line-height: 1.2;
+    margin: 2px 0;
+    color: #343434;
+}
+
+.h3 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #343434;
+}
+
+.bold {
+    font-weight: bold;
+    color: #343434;
+}
+
+.subheading {
+    font-size: 18px;
+    margin: 6px 0 0px;
+    font-weight: bold;
+    color: #343434;
+}
+
+.distance-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 0px;
+    margin-bottom: 6px;
+    color: #343434;
+}
+
+.distance-label {
+    font-size: 28px;
+    font-weight: bold;
+    color: #343434;
+}
+
+.distance-value {
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 1;
+    padding-bottom: 0;
+    margin-left: auto;
+    color: #343434;
+}
+
+.recent-label {
+    text-align: right;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 6px 0 4px;
+    color: #343434;
+}
+
+.stat-row .row {
+    font-size: 20px;
+    margin: 3px 0;
+    font-weight: bold;
+    color: #343434;
+}
+
+.title-thin-line {
+    border-top: 2px solid #343434;
+    margin: 3px 0;
+}
+
+.thin-line {
+    border-top: 2px solid #999;
+    margin: 2px 0;
+}
+
+.solid-line {
+    border-top: 10px solid #343434;
+    margin: 10px 0;
+}
+
+.footer {
+    font-size: 14px;
+    line-height: 1.3;
+    margin-top: 20px;
+    color: #343434;
+}
+
+.intro-section {
+    max-width: 480px;
+    margin: 40px auto 0;
+    text-align: center;
+    padding: 0 20px;
+  }
+  
+  .big-title {
+    font-family: Helvetica, sans-serif;
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #343434;
+  }
+  
+  .intro-description {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.5;
+  }  
+
+button {
+    margin-top: 20px;
+    padding: 8px 16px;
+    font-weight: bold;
+    background: #000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+#activity-select {
+    font-family: Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+    padding: 6px 15px;
+    margin-bottom: 20px;
+    border: 1px solid #343434;
+    color: #343434;
+    background: #fff;
+    outline: none;
+  }
+
+.recent_activities{
+    font-family: Helvetica;
+    font-size: 18px;
+}
+
+.footer-section {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 12px;
+    color: #444;
+  }
+  
+  .footer-section a {
+    color: #0077cc;
+    text-decoration: none;
+  }
+  
+  .footer-section a:hover {
+    text-decoration: underline;
+  }
+
+  .corner-credit {
+    position: absolute;
+    bottom: 8px;
+    right: 12px;
+    font-size: 11px;
+    color: #aaa;
+  }
+  
+  #runtrition-container {
+    position: relative; /* required for .corner-credit to work */
+  }  
+  
+  
+
+@media (max-width: 768px) {
+    #runtrition-container {
+      width: 100%;
+      max-width: 90vw;
+      height: auto;
+      padding: 16px;
+      font-size: 14px;
+      transform: scale(0.80);
+      margin-bottom: 12px
+    }
+  
+    .title {
+      font-size: 32px;
+    }
+
+    .h3 {
+        font-size: 20px;
+    }
+  
+    .distance-label {
+      font-size: 20px;
+    }
+  
+    .distance-value {
+      font-size: 28px;
+    }
+  
+    .stat-row .row {
+      font-size: 16px;
+    }
+  
+    .recent-label {
+      font-size: 18px;
+    }
+  
+    .footer {
+      font-size: 11px;
+    }
+
+    .footer-link {
+        font-size: 12px;
+        color: #888;
+        text-decoration: none;
+        font-style: italic;
+      }
+      
+      .footer-link:hover {
+        text-decoration: underline;
+      }      
+  
+    .button {
+      width: 90%;
+      font-size: 16px;
+    }
+
+    .intro-section {
+        margin-top: 0px !important;
+      }
+    
+      .intro-description {
+        font-size: 14px;
+        color: #555;
+        line-height: 1.5;
+      }  
+    
+      #activity-select {
+        margin-top: 0px !important;
+        margin-bottom: 0px !important;
+      }
+  }
+  
+  

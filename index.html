@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Runtrition Facts</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="recent_activities">
+        <p>Pick your favorite recent run</p>
+    </div>
+    <select id="activity-select">
+        <option>Loading activities...</option>
+      </select>
+      
+  <div id="runtrition-container">
+    <h1 class="title">Runtrition Facts</h1>
+    <div class="title-thin-line"></div>
+
+    <h3 class="act-title" id="name">Activity Title</h3>
+
+    <div class="row h3">
+      <div class="left bold">Serving Duration</div>
+      <div class="right bold" id="moving_time">--:--</div>
+    </div>
+
+    <div class="solid-line"></div>
+
+    <div class="subheading bold">Amount per serving</div>
+
+    <div class="row distance-row">
+      <div class="distance-label">Distance (km)</div>
+      <div class="distance-value" id="distance">--</div>
+    </div>
+
+    <div class="solid-line"></div>
+
+    <div class="recent-label">Run Value*</div>
+    <div class="thin-line"></div>
+
+    <div class="stat-row">
+      <div class="row">
+        <div class="left">Average Pace</div>
+        <div class="right bold" id="average_speed">-- /km</div>
+      </div>
+      <div class="thin-line"></div>
+
+      <div class="row">
+        <div class="left">Elevation Gain</div>
+        <div class="right bold" id="total_elevation_gain">-- m</div>
+      </div>
+      <div class="thin-line"></div>
+
+      <div class="row">
+        <div class="left">Cadence</div>
+        <div class="right bold" id="average_cadence">--</div>
+      </div>
+      <div class="thin-line"></div>
+
+      <div class="row">
+        <div class="left">Average Heart Rate</div>
+        <div class="right bold" id="average_heartrate">-- bpm</div>
+      </div>
+      <!-- <div class="thin-line"></div>
+
+      <div class="row">
+        <div class="left">Calories</div>
+        <div class="right bold" id="calories">--</div>
+      </div> -->
+
+    </div>
+
+    <div class="solid-line"></div>
+
+    <!-- <p class="footer">
+      * May cause runner’s high and an overwhelming desire to keep running. Proceed with caution. Made by Runtrition Facts. Powered by Strava.
+    </p> -->
+
+    <p class="footer">
+        * May cause runner’s high and an overwhelming desire to keep running. Proceed with caution. Powered by Strava. Made by runtrition.vercel.app 
+      </p>      
+
+    <!-- <div class="corner-credit">runtrition.vercel.app</div> -->
+  </div>
+
+  <div class="intro-section">
+    <!-- <h2 class="big-title">Runtrition Facts</h2> -->
+    <p class="intro-description">
+      <b>Runtrition Facts</b> transforms your Strava activity into a playful nutrition facts-style graphic, made for runners who love to share the joy of moving.<br>
+      Just connect, pick a run, and save the vibe.
+    </p>
+  </div>  
+
+  <button id="connect-strava-btn">Connect with Strava</button>
+
+  <button id="download-btn">Download as Image</button>
+
+  <div class="footer-section">
+    <p class="creator-credit">Made by Jennifer Simangunsong</p>
+    <p class="feedback-text">
+      Got feedback? Reach out on 
+      <a href="https://www.strava.com/athletes/75582805" target="_blank">Strava</a> or 
+      <a href="https://www.instagram.com/ysjennifer" target="_blank">Instagram</a>.
+    </p>
+  </div>  
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
