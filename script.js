@@ -121,10 +121,10 @@ document.getElementById("download-btn").addEventListener("click", () => {
 const clientId = '157732';
 
 // change to this FOR LIVE VERSION
-// const redirectUri = 'https://runtrition.vercel.app';
+const redirectUri = 'https://runtrition.vercel.app';
 
 // change to this FOR LOCAL TESTING
-const redirectUri = 'http://localhost:5500'; 
+// const redirectUri = 'http://localhost:5500'; 
 
 document.getElementById("connect-strava-btn").addEventListener("click", () => {
   const stravaAuthUrl = `https://www.strava.com/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code&scope=activity:read`;
