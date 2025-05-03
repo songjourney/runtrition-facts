@@ -177,9 +177,15 @@ button {
   }
 
 .recent_activities{
-    font-family: Helvetica;
     font-size: 18px;
+    color: #555;
 }
+
+.screenshot-tip{
+    font-size: 18px;
+    color: #555;
+}
+
 
 .footer-section {
     margin-top: 30px;
