@@ -193,3 +193,6 @@ if (stravaCode) {
       console.error("❌ Failed to get token:", err);
     });
 }
+
+plausible('Connect Strava');      // when user clicks connect
+plausible('Image Download');      // when user clicks download
