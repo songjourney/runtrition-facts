@@ -45,20 +45,27 @@ document.getElementById("download-btn").addEventListener("click", () => {
     const container = document.getElementById("runtrition-container");
   
     html2canvas(container, {
-      scale: 2, // sharpens the image
-      useCORS: true,
-      backgroundColor: null,
-      width: container.offsetWidth,
-      height: container.offsetHeight,
-      scrollX: 0,
-      scrollY: -window.scrollY
-    }).then((canvas) => {
-      const link = document.createElement("a");
-      link.download = "runtrition-facts.png";
-      link.href = canvas.toDataURL("image/png");
-      link.click();
-    });
-  });
+        scale: 2,
+        useCORS: true,
+        backgroundColor: null,
+        scrollX: 0,
+        scrollY: -window.scrollY
+      }).then((canvas) => {
+        const croppedCanvas = document.createElement("canvas");
+        const context = croppedCanvas.getContext("2d");
+      
+        croppedCanvas.width = container.offsetWidth * 2; // multiplied by scale
+        croppedCanvas.height = container.offsetHeight * 2;
+      
+        context.drawImage(canvas, 0, 0, croppedCanvas.width, croppedCanvas.height);
+      
+        const link = document.createElement("a");
+        link.download = "runtrition-facts.png";
+        link.href = croppedCanvas.toDataURL("image/png");
+        link.click();
+      });
+      
+
 
 // ====== 4. Connect with Strava Button ======
 const clientId = '157732';
