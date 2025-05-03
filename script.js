@@ -41,35 +41,90 @@ function renderActivity(activity) {
   
 
 // ====== 3. Download Image Button (Improved) ======
+
 document.getElementById("download-btn").addEventListener("click", () => {
     const container = document.getElementById("runtrition-container");
   
     html2canvas(container, {
-        scale: 2,
-        useCORS: true,
-        backgroundColor: null,
-        scrollX: 0,
-        scrollY: -window.scrollY
-      }).then((canvas) => {
+      scale: 2,
+      useCORS: true,
+      backgroundColor: null,
+      scrollX: 0,
+      scrollY: -window.scrollY,
+    }).then((canvas) => {
+      const ctx = canvas.getContext("2d");
+      const { data, width, height } = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  
+      let top = null, bottom = null, left = null, right = null;
+  
+      for (let y = 0; y < height; y++) {
+        for (let x = 0; x < width; x++) {
+          const alpha = data[(y * width + x) * 4 + 3];
+          if (alpha > 0) {
+            if (top === null) top = y;
+            if (left === null || x < left) left = x;
+            if (right === null || x > right) right = x;
+            bottom = y;
+          }
+        }
+      }
+  
+      if (top !== null) {
+        const croppedWidth = right - left + 1;
+        const croppedHeight = bottom - top + 1;
         const croppedCanvas = document.createElement("canvas");
-        const context = croppedCanvas.getContext("2d");
-      
-        croppedCanvas.width = container.offsetWidth * 2; // multiplied by scale
-        croppedCanvas.height = container.offsetHeight * 2;
-      
-        context.drawImage(canvas, 0, 0, croppedCanvas.width, croppedCanvas.height);
-      
+        const croppedCtx = croppedCanvas.getContext("2d");
+  
+        croppedCanvas.width = croppedWidth;
+        croppedCanvas.height = croppedHeight;
+        croppedCtx.drawImage(canvas, left, top, croppedWidth, croppedHeight, 0, 0, croppedWidth, croppedHeight);
+  
         const link = document.createElement("a");
         link.download = "runtrition-facts.png";
         link.href = croppedCanvas.toDataURL("image/png");
         link.click();
-      });
+      } else {
+        alert("❌ Could not crop: image is empty.");
+      }
+    });
+  });
+  
+  
+  
+// document.getElementById("download-btn").addEventListener("click", () => {
+//     const container = document.getElementById("runtrition-container");
+
+//     html2canvas(container, {
+//         scale: 2,
+//         useCORS: true,
+//         backgroundColor: null,
+//         scrollX: 0,
+//         scrollY: -window.scrollY
+//       }).then((canvas) => {
+//         const croppedCanvas = document.createElement("canvas");
+//         const context = croppedCanvas.getContext("2d");
+      
+//         croppedCanvas.width = container.offsetWidth * 2; // multiplied by scale
+//         croppedCanvas.height = container.offsetHeight * 2;
+      
+//         context.drawImage(canvas, 0, 0, croppedCanvas.width, croppedCanvas.height);
+      
+//         const link = document.createElement("a");
+//         link.download = "runtrition-facts.png";
+//         link.href = croppedCanvas.toDataURL("image/png");
+//         link.click();
+//       });
       
 
 
 // ====== 4. Connect with Strava Button ======
 const clientId = '157732';
-const redirectUri = 'https://runtrition.vercel.app';
+
+// change to this FOR LIVE VERSION
+// const redirectUri = 'https://runtrition.vercel.app';
+
+// change to this FOR LOCAL TESTING
+const redirectUri = 'http://localhost:5500'; 
 
 document.getElementById("connect-strava-btn").addEventListener("click", () => {
   const stravaAuthUrl = `https://www.strava.com/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code&scope=activity:read`;
