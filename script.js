@@ -28,15 +28,17 @@ function formatCadence(rawCadence) {
 
 // ====== 2. Render Activity into Layout ======
 function renderActivity(activity) {
-  document.getElementById("moving_time").textContent = formatTime(activity.moving_time);
-  document.getElementById("name").textContent = activity.name;
-  document.getElementById("distance").textContent = (activity.distance / 1000).toFixed(1);
-  document.getElementById("average_speed").textContent = formatPace(activity.moving_time, activity.distance);
-  document.getElementById("total_elevation_gain").textContent = `${activity.total_elevation_gain || 0} m`;
-  document.getElementById("calories").textContent = activity.calories ? `${Math.round(activity.calories)} kcal` : "—";
-  document.getElementById("average_heartrate").textContent = activity.average_heartrate ? `${Math.round(activity.average_heartrate)} bpm` : "—";
-  document.getElementById("average_cadence").textContent = formatCadence(activity.average_cadence);
-}
+    const el = (id) => document.getElementById(id);
+  
+    if (el("moving_time")) el("moving_time").textContent = formatTime(activity.moving_time);
+    if (el("name")) el("name").textContent = activity.name;
+    if (el("distance")) el("distance").textContent = (activity.distance / 1000).toFixed(1);
+    if (el("average_speed")) el("average_speed").textContent = formatPace(activity.moving_time, activity.distance);
+    if (el("total_elevation_gain")) el("total_elevation_gain").textContent = `${activity.total_elevation_gain || 0} m`;
+    if (el("average_heartrate")) el("average_heartrate").textContent = activity.average_heartrate != null ? `${Math.round(activity.average_heartrate)} bpm` : "—";
+    if (el("average_cadence")) el("average_cadence").textContent = formatCadence(activity.average_cadence);
+  }
+  
 
 // ====== 3. Download Image Button (Improved) ======
 document.getElementById("download-btn").addEventListener("click", () => {
@@ -108,7 +110,10 @@ if (stravaCode) {
           });
 
           // Show first by default
-          renderActivity(activities[0]);
+          console.log("⏳ Waiting to render...");
+            setTimeout(() => {
+            renderActivity(activities[0]);
+            }, 100);
 
           // Change on dropdown
           select.addEventListener("change", (e) => {
